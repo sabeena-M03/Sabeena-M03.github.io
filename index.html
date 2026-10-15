@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sabeena M | ECE Portfolio</title>
+
+    <meta name="description"
+        content="Sabeena M's professional portfolio featuring engineering education, technical skills, projects, internship experience, and professional profiles.">
+
+    <meta name="theme-color" content="#080b12">
+
+    <style>
+        :root {
+            --bg: #080b12;
+            --card: #101722;
+            --blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --white: #f4f7fb;
+            --muted: #a8b4c5;
+            --border: rgba(96, 165, 250, 0.23);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 11, 18, 0.96);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 12px 0;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--light-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.88rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-blue);
+        }
+
+        .hero {
+            min-height: 78vh;
+            display: flex;
+            align-items: center;
+            padding: 85px 0;
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(37, 99, 235, 0.17),
+                    transparent 40%
+                );
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            color: var(--light-blue);
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 7vw, 5.2rem);
+            line-height: 1.15;
+            letter-spacing: -2px;
+            margin: 20px 0;
+        }
+
+        h1 span,
+        .section-title span {
+            color: var(--light-blue);
+        }
+
+        .hero h2 {
+            color: #d5e2f3;
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .hero p,
+        .section-description {
+            color: var(--muted);
+            max-width: 700px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 7px;
+            border: 1px solid var(--blue);
+            font-weight: bold;
+            text-align: center;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            color: var(--light-blue);
+        }
+
+        .btn-outline:hover {
+            background: rgba(59, 130, 246, 0.12);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 75px 0;
+            scroll-margin-top: 90px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            margin-bottom: 32px;
+        }
+
+        .about-box,
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .about-box p {
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            border-color: var(--blue);
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            color: var(--light-blue);
+            font-weight: bold;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 11px;
+        }
+
+        .tag {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: #dbeafe;
+            border-radius: 7px;
+            padding: 8px 13px;
+            font-size: 0.9rem;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--light-blue);
+            font-weight: bold;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        .resume-box {
+            background: linear-gradient(135deg, #101722, #102344);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 30px;
+        }
+
+        .resume-box p {
+            color: var(--muted);
+            margin: 12px 0;
+        }
+
+        .contact-card {
+            text-align: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 35px 22px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            margin: 12px 0;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 24px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 760px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 10px 14px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 75px 0;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+
+            .resume-box {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+
+        <a href="#home" class="logo">
+            Sabeena<span>.M</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#internship">Internship</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#profiles">Profiles</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<main>
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+
+            <div class="eyebrow">
+                Electronics & Communication Engineering
+            </div>
+
+            <h1>
+                Hi, I'm <span>Sabeena M.</span>
+            </h1>
+
+            <h2>
+                Engineering Student | Technology Enthusiast
+            </h2>
+
+            <p>
+                I am an Electronics and Communication Engineering student
+                passionate about technology, electronics, software
+                development, and continuous learning. I enjoy developing
+                practical projects and improving my problem-solving skills.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn btn-primary">
+                    Explore Projects
+                </a>
+
+                <a href="#resume" class="btn btn-outline">
+                    View Resume
+                </a>
+
+                <a href="#profiles" class="btn btn-outline">
+                    My Profiles
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+        <div class="container">
+
+            <h2 class="section-title">
+                About <span>Me</span>
+            </h2>
+
+            <p class="section-description">
+                A little about my engineering journey and interests.
+            </p>
+
+            <div class="about-box">
+                <p>
+                    Hello! I am Sabeena M, an Electronics and Communication
+                    Engineering student building my technical knowledge
+                    through academic learning, online courses, and practical
+                    projects.
+                </p>
+
+                <p>
+                    I have developed an Electronic Components Inventory
+                    System and am interested in programming, electronics,
+                    IoT, and emerging technologies.
+                </p>
+
+                <p>
+                    My goal is to keep learning, strengthen my technical
+                    skills, and gain practical experience through projects
+                    and internship opportunities.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Education</span>
+            </h2>
+
+            <p class="section-description">
+                My academic background.
+            </p>
+
+            <div class="grid">
+
+                <article class="card">
+                    <h3>
+                        B.E. Electronics and Communication Engineering
+                    </h3>
+
+                    <p>
+                        VSB College of Engineering Technical Campus
+                    </p>
+
+                    <p>
+                        CGPA: <span class="highlight">7.9</span>
+                    </p>
+
+                    <p>
+                        Studying electronics, communication systems,
+                        programming, and engineering fundamentals.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+        <div class="container">
+
+            <h2 class="section-title">
+                Technical <span>Skills</span>
+            </h2>
+
+            <p class="section-description">
+                Technologies and skills I am learning and practising.
+            </p>
+
+            <div class="tag-list">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Python Fundamentals</span>
+                <span class="tag">Electronics</span>
+                <span class="tag">IoT Fundamentals</span>
+                <span class="tag">Microsoft Excel</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">Problem Solving</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+        <div class="container">
+
+            <h2 class="section-title">
+                Featured <span>Projects</span>
+            </h2>
+
+            <p class="section-description">
+                Practical work demonstrating my technical learning.
+            </p>
+
+            <div class="grid">
+
+                <article class="card">
+                    <h3>Electronic Components Inventory System</h3>
+
+                    <p>
+                        A web-based application for managing electronic
+                        component inventory, updating stock, tracking
+                        issue and return transactions, verifying physical
+                        stock, and identifying low-stock components.
+                    </p>
+
+                    <p>
+                        <span class="highlight">Technologies:</span>
+                        HTML, CSS, JavaScript, Supabase.
+                    </p>
+
+                    <a
+                        class="card-link"
+                        href="https://electronic-components-maintain.netlify.app"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Open Live Project ↗
+                    </a>
+                </article>
+
+                <article class="card">
+                    <h3>Future Engineering Projects</h3>
+
+                    <p>
+                        This section can showcase additional electronics,
+                        software, or IoT projects as I complete them.
+                    </p>
+
+                    <p>
+                        Future projects can include their descriptions,
+                        technologies, and repository links.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERNSHIP -->
+
+    <section id="internship">
+        <div class="container">
+
+            <h2 class="section-title">
+                Internship <span>Experience</span>
+            </h2>
+
+            <p class="section-description">
+                Industrial exposure and practical learning.
+            </p>
+
+            <div class="grid">
+
+                <article class="card">
+                    <h3>Gilbarco Veeder-Root India Pvt. Ltd.</h3>
+
+                    <p>
+                        Gained exposure to testing laboratory activities,
+                        Kaizen, Microsoft Excel, petrol dispenser mechanisms,
+                        and petrol dispatch processes.
+                    </p>
+
+                    <p>
+                        The experience helped me understand industrial
+                        processes, teamwork, quality practices, and
+                        continuous improvement.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RESUME -->
+
+    <section id="resume">
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Resume</span>
+            </h2>
+
+            <p class="section-description">
+                View or download my resume.
+            </p>
+
+            <div class="resume-box">
+
+                <h3>Sabeena M — Resume</h3>
+
+                <p>
+                    Upload your resume PNG to the same GitHub repository
+                    as this file. Name it exactly:
+                    <span class="highlight">Sabeena_M_Resume.png</span>
+                </p>
+
+                <div class="buttons">
+
+                    <a
+                        class="btn btn-primary"
+                        href="Sabeena_M_Resume.png"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        View Resume ↗
+                    </a>
+
+                    <a
+                        class="btn btn-outline"
+                        href="Sabeena_M_Resume.png"
+                        download="Sabeena_M_Resume.png">
+                        Download Resume ↓
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL PROFILES -->
+
+    <section id="profiles">
+        <div class="container">
+
+            <h2 class="section-title">
+                Professional <span>Profiles</span>
+            </h2>
+
+            <p class="section-description">
+                Connect with me and explore my coding practice,
+                projects, and professional journey.
+            </p>
+
+            <div class="grid">
+
+                <article class="card">
+                    <h3>GitHub</h3>
+
+                    <p>
+                        Explore my repositories, projects, and development work.
+                    </p>
+
+                    <a
+                        class="card-link"
+                        href="https://github.com/sabeena-M03"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Visit GitHub ↗
+                    </a>
+                </article>
+
+                <article class="card">
+                    <h3>LeetCode</h3>
+
+                    <p>
+                        Explore my coding practice and problem-solving journey.
+                    </p>
+
+                    <a
+                        class="card-link"
+                        href=" https://leetcode.com/u/Sabeena_M_03"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Visit LeetCode ↗
+                    </a>
+                </article>
+
+                <article class="card">
+                    <h3>LinkedIn</h3>
+
+                    <p>
+                        Connect with me professionally and explore my
+                        learning journey and project updates.
+                    </p>
+
+                    <a
+                        class="card-link"
+                        href="  https://www.linkedin.com/in/sabeena-m-5686b5382?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Visit LinkedIn ↗
+                    </a>
+                </article>
+
+                <article class="card">
+                    <h3>HackerRank</h3>
+
+                    <p>
+                        Explore my programming practice and technical skills.
+                    </p>
+
+                    <a
+                        class="card-link"
+                        href=" https://www.hackerrank.com/profile/msabeena600 "
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Visit HackerRank ↗
+                    </a>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+        <div class="container">
+
+            <h2 class="section-title">
+                Contact <span>Me</span>
+            </h2>
+
+            <p class="section-description">
+                Feel free to contact me for professional connections
+                and learning opportunities.
+            </p>
+
+            <div class="contact-card">
+
+                <h3>Let's Connect</h3>
+
+                <p>
+                    Email is the best way to reach me.
+                </p>
+
+                <div class="buttons" style="justify-content:center;">
+
+                    <a
+                        class="btn btn-primary"
+                        href="mailto:msabeena600@gmail.com">
+                        Email Me ✉
+                    </a>
+
+                    <a
+                        class="btn btn-outline"
+                        href=" https://github.com/sabeena-M03"
+                        target="_blank"
+                        rel="noopener noreferrer">
